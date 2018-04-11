@@ -92,6 +92,7 @@ class InvoiceBuilder
 		$customer->addChild('address2', $this->customer->getContactaddress2());
 		$customer->addChild('postalcode', $this->customer->getContactpostalcode());
 		$customer->addChild('countrycode', $this->customer->getContactcountrycode());
+		$customer->addChild('city', $this->customer->getContactcity());
 		$customer->addChild('vatnumber', $this->customer->getContactvatnumber());
 		$customer->addChild('telephone', $this->customer->getContacttelephone());
 		$customer->addChild('fax', $this->customer->getContactfax());

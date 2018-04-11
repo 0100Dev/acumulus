@@ -20,4 +20,25 @@ class EntriesProvider extends AcumulusConnector
 
         return $this;
     }
+
+    public function updateEntryDetails($entry_id, $paymentstatus = 1, $paymentdate = null, $accountnumber = null)
+    {
+        if($paymentdate === null) {
+            $paymentdate = date('Y-m-d');
+        }
+
+        // Validate paymentdate before sending it off
+        $datetime = \DateTime::createFromFormat("Y-m-d", $paymentdate);
+        if (!$datetime and $datetime->format('Y-m-d') !== $paymentdate) {
+            throw new ValidationErrorException("Paymentdate should be in YYYY-MM-DD format");
+        }
+
+        $this->apiCall = 'entry/entry_update.php';
+        $this->xmlPayload .= sprintf('<entryid>%s</entryid>', $entry_id);
+        $this->xmlPayload .= sprintf('<paymentstatus>%d</paymentstatus>', $paymentstatus);
+        $this->xmlPayload .= sprintf('<paymentdate>%s</paymentdate>', $paymentdate);
+        $this->xmlPayload .= sprintf('<accountnumber>%s</accountnumber>', $accountnumber);
+
+        return $this;
+    }
 }
