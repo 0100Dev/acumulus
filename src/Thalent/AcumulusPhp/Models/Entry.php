@@ -116,6 +116,38 @@ protected $paymentstatus;
     /**
      * @return mixed
      */
+    public function getAccountnumber()
+    {
+        return $this->accountnumber;
+    }
+
+    /**
+     * @param mixed $accountnumber
+     */
+    public function setAccountnumber($accountnumber)
+    {
+        $this->accountnumber = $accountnumber;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDescriptiontext()
+    {
+        return $this->descriptiontext;
+    }
+
+    /**
+     * @param mixed $descriptiontext
+     */
+    public function setDescriptiontext($descriptiontext)
+    {
+        $this->descriptiontext = $descriptiontext;
+    }
+
+    /**
+     * @return mixed
+     */
     public function getContactid()
     {
         return $this->contactid;
@@ -383,6 +415,22 @@ protected $paymentstatus;
     public function setPaymentterm($paymenttermdays)
     {
         $this->paymenttermdays = $paymenttermdays;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPaymentdate()
+    {
+        return $this->paymentdate;
+    }
+
+    /**
+     * @param mixed $paymentdate
+     */
+    public function setPaymentdate($paymentdate)
+    {
+        $this->paymentdate = $paymentterm;
     }
 
     /**

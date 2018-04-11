@@ -84,6 +84,7 @@ class InvoiceBuilder
 		$customer = new \SimpleXMLElement('<customer></customer>');
 
 		$customer->addChild('type', $this->customer->getContacttype());
+		$customer->addChild('overwriteifexists', $this->customer->getOverwriteifexists());
 		$customer->addChild('companyname1', $this->customer->getContactname1());
 		$customer->addChild('companyname2', $this->customer->getContactname2());
 		$customer->addChild('fullname', $this->customer->getContactperson());
