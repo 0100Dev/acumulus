@@ -27,8 +27,11 @@ class Parser
             }
 
             $fieldName = 'set' . ucfirst($name);
-            // Call the function by the array key name
-            $model->$fieldName($value);
+
+            if (method_exists($model, $fieldName)) {
+                // Call the function by the array key name
+                $model->$fieldName($value);
+            }
 
         }
 
